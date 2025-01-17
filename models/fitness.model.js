@@ -7,11 +7,21 @@ const FitnessSchema = mongoose.Schema({
         required: true,
         
       },
-      time: {
-        type: Number,
-        required: true,
-        
-      },
+        reps: {
+            type: Number,
+            required: true,
+            
+        },
+        sets: {
+            type: Number,
+            required: true,
+            
+        },
+        weight: {
+            type: Number,
+            required: true,
+            
+        },
       date: {
         type: Date,
         default: Date.now,
