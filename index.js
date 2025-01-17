@@ -1,7 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Fitness = require('./models/fitness.model.js')
+const dotenv = require('dotenv')
 const fitnessRoute = require('./routes/fitness.route.js')
+dotenv.config()
 const app = express();
 //middleware
 app.use(express.json());

@@ -1,16 +1,21 @@
 const Fitness = require('../models/fitness.model'); //import the fitness model
 
+//Get all fitness records
 const getFitnesses = async (req, res) => {
     try{
         const fitnesses = await Fitness.find({});
-        res.status(200).json(fitnesses);
+        res.status(200).json(fitnessRecords);
     } catch (error) {
         res.status(500).json({message: error.message});
     }
 } //create a get route for the fitness model
 const getFitness = async (req, res) => { 
     try{
-        const fitness = await Fitness.find({});
+        const {id} = req.params;
+        const fitness = await Fitness.findById(id);
+        if(!fitness){
+            res.status(404).json({message: 'Fitness record not found'});
+        }
         res.status(200).json(fitness);
     } catch (error) {
         res.status(500).json({message: error.message}); 
@@ -23,7 +28,7 @@ const createFitness = async (req, res) => { try{
         const fitness = await Fitness.create(req.body);
         res.status(200).json(fitness);
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }
 

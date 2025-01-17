@@ -12,7 +12,4 @@ router.post('/', createFitness); //create a post route for the fitness model
 //update a fitness record
 router.put('/:id', updateFitness); //create a put route for the fitness model by id
 
-        const {id} = req.params;
-        const fitness = await Fitness.findByIdAndUpdate
-
 module.exports = router; //export the router
