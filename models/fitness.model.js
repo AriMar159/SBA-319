@@ -28,6 +28,9 @@ const FitnessSchema = mongoose.Schema({
       },
     });
 
+    FitnessSchema.index({type: 1}); // Index by fitness type
+    FitnessSchema.index({date: 1}); // Index by date
+
 const Fitness = mongoose.model('Fitness', FitnessSchema);
 
 module.exports = Fitness;
